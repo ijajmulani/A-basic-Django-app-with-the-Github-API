@@ -1,0 +1,7 @@
+
+<span class="search-type">Repositories</span>
+{% for repoitem in repositories|slice:":5" %}
+  <li class="search-list-item js-search-list-item" tabindex="{{ forloop.counter }}" data-repo-name="{{ repoitem.name }}" data-full-name="{{repoitem.full_name}}">    
+    <a class="searchListElement js-search search-item" href="/" >{{ repoitem.full_name }}</a>
+  </li>
+{% endfor %}

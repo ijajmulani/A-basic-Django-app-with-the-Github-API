@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+  <header class="header header-section">
+    <a href="/" class="header-logo"><img src="https://s3-ap-southeast-1.amazonaws.com/asia.urbanpiper.com/static/frontend/images/logo-temp.png"></a>
+
+    <div class="search-box js-search-box header-item">
+      <i class="icon-search search-icon"></i>
+      <input type="text" class="top-search js-search-input" id="searchInput"
+         placeholder="Search github repository"/>
+      <ul class="search-suggestions hide" id="searchSuggestions"></ul>
+    </div>
+
+    <div class="mobile-number header-item">
+      <span>+91 7709860948</span>
+    </div>
+  </header>
+
+  <div class="repo-name">Repository Name: <span class="js-repo-name"></span></div>
+  <div class="issues-table js-issues-table"></div>
+
+
+{% endblock content %}
+
+{% block extra_javascript %}
+  <script src="{% static "/js/main.js" %}"></script>
+{% endblock extra_javascript %}
+
+{% block extra_css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" />
+{% endblock extra_css %}

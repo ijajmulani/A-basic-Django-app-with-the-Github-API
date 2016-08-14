@@ -7,8 +7,6 @@ import json
 import dateutil.parser
 
 
-# First create a Github instance:
-g = Github("ijajmulani786@gmail.com", "mavrick786")
 
 # Create your views here.
 def index(request):

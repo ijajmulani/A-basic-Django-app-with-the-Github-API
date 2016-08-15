@@ -1,18 +1,22 @@
-<table class="table table-hover table-bordered">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Descriptions</th>
-      <th>Avatar</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for issue in issues %}
+{% if issues %}
+  <table class="table table-hover table-bordered">
+    <thead>
       <tr>
-        <td class="js-issue-title"><a target="_blank" href="/issue/{{reponame}}/{{issue.number}}" data-number="{{issue.number}}" data-repo-name="{{reponame}}">{{ issue.title }}</a></td>
-        <td>{{ issue.body }}</td>
-        <td class="js-issue-user"><a target="_blank" href="/user/{{issue.user.login}}"><img src="{{ issue.user.avatar_url }}"></a></td>
+        <th>Title</th>
+        <th>Descriptions</th>
+        <th>Avatar</th>
       </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {% for issue in issues %}
+        <tr>
+          <td class="js-issue-title"><a target="_blank" href="/issue/{{reponame}}/{{issue.number}}" data-number="{{issue.number}}" data-repo-name="{{reponame}}">{{ issue.title }}</a></td>
+          <td>{{ issue.body }}</td>
+          <td class="js-issue-user"><a target="_blank" href="/user/{{issue.user.login}}"><img src="{{ issue.user.avatar_url }}"></a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <div class="no-issues-found">Oops! No issue found</div>
+{% endif %}

@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 import requests
 import json
 import dateutil.parser
+import datetime
 
 
 
@@ -28,7 +29,9 @@ def search_issues(request):
   postData = request.GET
   searchKey = postData.get('key')
   repoItem = {}
-  r = requests.get('https://api.github.com/search/issues?q=+state:open+type:issue+repo:'+searchKey)
+  now = datetime.datetime.now()
+  
+  r = requests.get('https://api.github.com/search/issues?q=+state:open+created:'+ now.strftime("%Y-%m-%d") +'+type:issue+repo:'+searchKey)
   if(r.ok):
     repoItem = json.loads(r.text or r.content)
   
